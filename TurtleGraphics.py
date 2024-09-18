@@ -35,9 +35,9 @@ def squaresInSquares (myTurtle, num):
         size = size+5
         myTurtle.penup()
         myTurtle.left (90)
-        myTurtle.forward(size)
+        myTurtle.forward(size/5)
         myTurtle.left (90)
-        myTurtle.forward(size)
+        myTurtle.forward(size/5)
         myTurtle.right(180)
         myTurtle.pendown()
 
