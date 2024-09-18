@@ -31,13 +31,15 @@ def fillCorner (myTurtle, size, sides, corner):
 def squaresInSquares (myTurtle, num):
     size=10
     for i in range (num):
-        myTurtle.penup()
-        myTurtle.left(135)
-        myTurtle.forward(size)
-        myTurtle.pendown()
         drawPolygon(myTurtle, size, 4)
         size = size+5
-
+        myTurtle.penup()
+        myTurtle.left (90)
+        myTurtle.forward(size)
+        myTurtle.left (90)
+        myTurtle.forward(size)
+        myTurtle.right(180)
+        myTurtle.pendown()
 
 def main():
     myTurtle = turtle.Turtle()
