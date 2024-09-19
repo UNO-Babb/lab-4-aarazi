@@ -17,47 +17,60 @@ def fillCorner (myTurtle, size, sides, corner):
         myTurtle.forward(size/2)
     elif corner==3:
         myTurtle.forward(size)
-        myTurtle.right(360/corner)
+        myTurtle.right(360/sides)
+        myTurtle.forward(size)
+        myTurtle.right(360/sides)
         myTurtle.forward(size/2)
     elif corner==4:
         myTurtle.forward(size)
-        myTurtle.right(360/corner)
+        myTurtle.right(360/sides)
         myTurtle.forward(size/2)
         
     myTurtle.begin_fill()
     drawPolygon(myTurtle,(size/2),sides)
     myTurtle.end_fill()    
     
-def squaresInSquares (myTurtle, num):
-    size=10
+def squaresInSquares (myTurtle, num, size, increase):
     for i in range (num):
         drawPolygon(myTurtle, size, 4)
-        size = size+5
+        size = size+increase
         myTurtle.penup()
         myTurtle.left (90)
-        myTurtle.forward(size/5)
+        myTurtle.forward(increase/2)
         myTurtle.left (90)
-        myTurtle.forward(size/5)
+        myTurtle.forward(increase/2)
         myTurtle.right(180)
         myTurtle.pendown()
 
 def main():
     myTurtle = turtle.Turtle()
-    #drawPolygon(myTurtle, 50, 5) #draws a pentagon
-    #drawPolygon(myTurtle, 50, 8) #draws an octogon
-    #drawPolygon(myTurtle,50,4)
-    
-    #fillCorner (myTurtle, 50, 4, 4)
-    
-    squaresInSquares (myTurtle,3)
-    
+    drawPolygon(myTurtle,50,4) #draws a square
+    drawPolygon(myTurtle, 50, 5) #draws a pentagon
+    drawPolygon(myTurtle, 50, 8) #draws an octogon
 
-    # fillCorner(myTurtle, 2) #draws a square with top right corner filled in.
-    # fillCorner(myTurtle, 3) #draws a square bottom left corner filled in.
-
-    # squaresInSquares(myTurtle, 5) #draws 5 concentric squares
+    myTurtle.penup()
+    myTurtle.goto(150,150)
+    myTurtle.pendown()
     
-    # squaresInSquares(myTurtle, 3) #draws 3 concentric squares
-
+    fillCorner (myTurtle, 50, 4, 2) #draws a square with top right corner filled in
+    
+    myTurtle.penup()
+    myTurtle.goto(-150,150)
+    myTurtle.pendown()
+    
+    fillCorner (myTurtle, 50, 4, 3)  #draws a square bottom left corner filled in
+    
+    myTurtle.penup()
+    myTurtle.goto(-150,-150)
+    myTurtle.pendown()
+    
+    squaresInSquares (myTurtle,5,12,6)#draws 5 concentric squares
+    
+    myTurtle.penup()
+    myTurtle.goto(150,-150)
+    myTurtle.pendown()
+    
+    squaresInSquares (myTurtle,3,12,10)#draws 3 concentric squares
+    
 
 main()
